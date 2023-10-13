@@ -8,6 +8,7 @@ ARG AIRFLOW_HOME=/opt/airflow
 
 # Export the environment variable AIRFLOW_HOME where airflow will be installed
 ENV AIRFLOW_HOME=${AIRFLOW_HOME}
+ENV PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 
 # Install dependencies and tools
 RUN apt-get update -y && \
