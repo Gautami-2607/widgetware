@@ -50,6 +50,13 @@ RUN pip install --upgrade "pip==20.2.4" && \
     pip install 'apache-airflow[password]'
 
 ENV AIRFLOW__CORE__LOAD_EXAMPLES=True
+ENV AIRFLOW__API__ACCESS_CONTROL_ALLOW_HEADERS=Authorization,Content-Type,Access-Control-Allow-Header,Access-Control-Allow-Origin,Access-Control-Allow-Methods,Access-Control-Allow-Credentials,Content-Length,Accept-Encoding
+ENV AIRFLOW__API__ACCESS_CONTROL_ALLOW_METHODS=GET,POST
+ENV AIRFLOW__API__ACCESS_CONTROL_ALLOW_ORIGIN=https://*.gitpod.io,https://*.github.dev
+ENV AIRFLOW__API__AUTH_BACKENDS=airflow.api.auth.backend.session
+ENV AIRFLOW__API__ENABLE_EXPERIMENTAL_API=True 
+ENV AUTHENTICATE=True
+
 
 # Copy the airflow.cfg file (config)
 # COPY ./config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
